@@ -25,7 +25,28 @@
     display: flex;
     flex-wrap: wrap;
 }
-
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+ .shimmer-card {
+    margin:20px;
+    width:200px;
+    height: 400px;
+    background-color: #f0f0f0;
+    
+} 
+.login{
+    padding: 0 20 px;
+    cursor: pointer;
+}
+.search-container{
+    display: flex;
+    margin:20px;
+}
+.filter-btn{
+    margin-left: 10px;
+}
 
 
 

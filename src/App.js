@@ -23,6 +23,10 @@ import { TitleComponent } from "./components/Header"
 import { IMG_CON_URL } from "./Constant";
 import Footer from "./components/Footer"
 import Body from "./components/Body";
+import About from "./components/About";
+import ContactUs from "./components/ContactUs";
+import Error from "./components/Error";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 const heading = React.createElement(
     "h1",
     { 
@@ -60,13 +64,6 @@ const heading2=(<h1 id="title" key ="h22">
 const a=10;
 
 
-
-
-
-
-
-
-
     const ResturantCard =()=>{
         return(
             <div className="card">
@@ -92,18 +89,14 @@ const a=10;
   //     )
   // }
 
-  
-
-
-     
-
 
       
     const AppLayout = ()=>{
         return(
            <>
            <HeaderComponentAlias/>
-           <Body/>
+           {/* outlet i s an inbuld component */}
+           <Outlet/>
            <Footer/>
            </>
            
@@ -156,6 +149,29 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
  * 
  */
 
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout />,
+        children: [
+            {
+                path:"/",
+                element: <Body />
+            },
+            {
+                path:"/about",
+                element: <About />
+            },
+            {
+                path:"/contactus",
+                element: <ContactUs />
+            }
+        ],
+        errorElement: <Error />
+    },
 
-
-root.render(<AppLayout/>);
+]);
+//We are providing the appRouter configuration to
+// RouterProvider component which is inbuilt in RouterProvider
+root.render(<RouterProvider router={appRouter} />)
+//root.render(<AppLayout/>);
