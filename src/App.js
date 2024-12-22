@@ -27,6 +27,7 @@ import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import ResturantMenu from "./components/RestaurantMenu";
 const heading = React.createElement(
     "h1",
     { 
@@ -165,6 +166,11 @@ const appRouter = createBrowserRouter([
             {
                 path:"/contactus",
                 element: <ContactUs />
+            },
+            {
+                path:"/restaurants/:resId",
+                // :resId we are creating Dynamic routing
+                element: <ResturantMenu />
             }
         ],
         errorElement: <Error />
