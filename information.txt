@@ -1,0 +1,107 @@
+JSX takes care of the XSS attack. by doing 'sanitaization'.
+it sanitizes the code data from API .
+
+Component composition- using component inside a component is called component composition .
+
+chapter - 4
+ you can right any piece of javascript inside { } braces 
+
+ config driven UI -> if you give some data in config the UI will show something , if you give some other data 
+ it will show somethinbg else.So backend/config controls what kind website should look in kolkata ,and what 
+ kind of website should look in dheradun like what kind of offer, should be running in different
+ places. 
+ e.g- swiggy, zomato doesn't run the same offer in mumbai and bangalore.maybe there
+ is no offer in kolkata so the offer section will be not visible in kolkata.
+ all of this control by config thats why it is called config driven UI.
+
+optional chaining-> the '?' you give to check null before a key in map ,that is called optional chaining 
+
+props-> if you are pasing some data or properties in the component then it is called 
+props passing in the component . 
+
+react fiber -> read about this reconciliation algorithm 
+
+chapter - 5 
+
+exporting by default and exporting by name
+when something gets imported by name , then it is called named import(it is in the curly bracket).
+
+you can export only one default thing from a component file.
+
+you can export as the name as it is, how ever in the place where you are empoirting, you can change the name also , say in the 
+place of headerComponent you can write 'headerComponentAlias' aslo. it will not throw error.(this is just like argument 
+ passing in function where the name parameter name and argument name can be defferent)
+
+ what is state 
+ what is react hooks ?  -its  just a fuction
+ what is useState()
+ what is useEffect()
+
+ Whenever a state variable changes/updates react re-renders the components.
+
+Vertual Dom -vertual dom is a repesentation of an actual dom
+
+Why react is fast ? 
+React is doing effiecient DOM manipulation.It has a vertual dom. It can find 
+The difference between the diff between the new dom object and and old and 
+re render it. It happens everytime the state variable changes, and react is 
+constantly monitoring it.
+
+Chapter - 6
+
+useEffect works i.e., the callback function will be called after the body 
+component has been rendered.
+Conditional Rendering - If you have a condition and then render accordingly then it is 
+called conditional rendering 
+note - Whenever State variable changes,react triggers a 
+reconciliation cycle(rerender the component)
+
+const [searchInput,setsearchInput] =useState("") //to create a state variable we use this perticular hook
+ <input type ="textbox" className="searh-input"
+        placeholder="Search" value= {searchInput} 
+        onChange={(e)=>{
+          setsearchInput(e.target.value);   //here we writing search text and in every key press we are reading search text and body is getting rerendered , 
+                                             //  it is called two way binding
+        }}/> 
+        
+Chapter - 7
+
+   //if no dependency array => useeffect will be called on every render
+      useEffect(()=>{
+        console.log("use effect called");
+    })
+    //if dependency array is empty [] => useeffect is called on initial render(just once).
+   useEffect(()=>{
+        console.log("use effect called");
+    },[])
+    //if dependency array is [btnNameReact] or any local state variable => it will change everytime the local state vaiable is updated.
+    useEffect(()=>{
+        console.log("use effect called");
+    },[btnNameReact])
+
+    When you are creating a usestate hook it should be declared/called inside the component.
+    Try to keep the usestate variable in the top inside the body 
+    never create your usestate inside a if-else,for loop
+
+    useRouteError hook -> given by react-router-dom. it provide us error in details thrown in our path 
+
+    Outlet component used for childern routes to render with the help of the path/route ( / or /about)
+    its like a tunnel where all children go and whatever route is there in the URL , that component will get loaded 
+    in the outlet andrendered in the page while keeping the header intact.
+
+    importing Link -> it works exactly like the anchor tag. But the whole page 
+    will not be refrashed. just the component will be rendered.
+    Link is a react component like href anchor tag to navigate between parts of application without refrashing the entire page.
+
+    Single page application -> Its just a one page application where components are getting rendered and interchanged via client side Routing.
+
+    there are 2 types of Routing in web apps
+    Client Side Routing
+    Server Side Routing
+
+    Dynamic Routing -> 
+     {
+                path:"/resturants/:resid",
+                element: <ResturantMenu />
+            }
+     :resId we are creating Dynamic routing. Its a dynamic ID , according to it the path will change.
